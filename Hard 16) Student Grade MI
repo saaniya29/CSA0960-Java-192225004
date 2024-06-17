@@ -1,0 +1,62 @@
+import java.util.Scanner;
+interface InputMarks
+{ void inputMarks();}
+interface CalcTotAgg
+{ void calctotagg(); void displaygrade();}
+class Student implements InputMarks,CalcTotAgg
+{
+    private int s1,s2,s3,s4,s5,s6;
+    private int tot;
+    private double agg;
+    private String grade;
+    public void inputMarks()
+    {
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Enter the marks in Subject 1: ");
+        s1 = scanner.nextInt();
+        System.out.print("Enter the marks in Subject 2: ");
+        s2 = scanner.nextInt();
+        System.out.print("Enter the marks in Subject 3: ");
+        s3 = scanner.nextInt();
+        System.out.print("Enter the marks in Subject 4: ");
+        s4 = scanner.nextInt();
+        System.out.print("Enter the marks in Subject 5: ");
+        s5 = scanner.nextInt();
+        System.out.print("Enter the marks in Subject 6: ");
+        s6 = scanner.nextInt();
+    }
+
+    public void calctotagg()
+    {
+        tot= s1+s2+s3+s4+s5+s6;
+        agg=tot/6.0;
+        if(agg>75) {grade="DISTINCTION";}
+        else if (agg >= 60) { grade = "First Division"; } 
+        else if (agg >= 50) { grade = "Second Division"; } 
+        else if (agg >= 40)  { grade = "Third Division"; } 
+        else { grade = "FAIL";}}
+        
+    public void displaygrade()
+    {
+        System.out.println("Total:"+tot);
+        System.out.println("Aggregate = " + String.format("%.2f", agg));
+        System.out.println("Class: " + grade);}}
+        
+public class Main{
+    public static void main(String[] args)
+    { Student s=new Student();
+        s.inputMarks();
+        s.calctotagg();
+        s.displaygrade();}}
+
+
+OUTPUT:
+Enter the marks in Subject 1: 60
+Enter the marks in Subject 2: 34
+Enter the marks in Subject 3: 27
+Enter the marks in Subject 4: 45
+Enter the marks in Subject 5: 52
+Enter the marks in Subject 6: 38
+Total:256
+Aggregate = 42.67
+Class: Third Division
